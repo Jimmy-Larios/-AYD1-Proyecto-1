@@ -23,3 +23,18 @@ Ramas de apoyo:
 - Ramas hotfix: Surgen de la ramas master. Contienen una versión de producción con un error que se desea arreglar urgentemente. Una vez arreglado el error, se incluye el contenido de esta rama en las ramas master y develop para subsanar el error. Además, se marca la versión arreglada en producción con un tag en la rama master.
 
 Se utilizará gitflow debido a que el proyecto se trabajará en equipo, y con esa estrategia se logrará mejorar la organización de branchs dentro del repositorio y, de esta forma, dar más fluidez al proceso de nuevos features y releases. 
+
+## TECNOLOGÍAS A UTILIZAR
+Las tecnologías que se utilizarán sera el stack **MERN**, este conjunto de tecnologías incluye:
+
+**Mongo DB**
+Es una base dedatos NoSQL orientada a documentos y multiplataforma, que almacena los datos en formato JSON.
+
+**Express**
+Es un framework alojado dentro del entorno de ejecuión NodeJS que ayuda a desarrollar aplicaciones web y crear APIs. Diseñado para escribir aplicaciones simplificadas, rápidas y seguras, del lado del servidor (back-end).
+
+**React**
+Es una biblioteca de JavaScript de código abierto, utilizada para desarrollar interfaces de usuario (front-end).
+
+**NodeJS**
+Es un entorno de ejecución de JavaScript y multiplataforma para desarrollar aplicaciones de servidor. Orientado a eventos asíncronos y diseñado para crear aplicaciones escalables (back-end).
