@@ -45,3 +45,10 @@ Es un entorno de ejecución de JavaScript y multiplataforma para desarrollar apl
 ![](./images/hacer_reseña.PNG)
 
 ![](./images/mostrar_vista_personalizada_dependiendo_del_tipo_de_usuario.PNG)
+
+## SEGURIDAD DE LA APLICACIÓN
+Para garantizar la privacidad de la información de los usuarios, las contraseñas se guardarán encriptadas en la base de datos para lo cual se utilizará la librería **bcrypt** de NodeJS, antes de ingresar a la aplicación se verificará que tipo de usuario intententa tener acceso, para así poder mostrar una vista de acuerdo a los permisos que este posee. 
+
+Para los endpoints que se utilizarán en la API REST se implementará JWT **(JSON Web Tokens)**, para brindar autentifiación de usuarios mediante tokens para poder obtener acceso a los recursos de los endpoints. De esta manera para que el usuario pueda obtener acceso a los datos del servidor, deberá enviar un token como forma de autentificación.
+
+También se realizarán pruebas unitarias y pruebas de integración para poder detectar cualquier tipo de error o vulnerabilidad que pueda ser explotada. Para proteger el sistema de vulnerabilidades conocidas se utilizará **Helmet**, mediante el cual se protegerán los encabezados HTTP.
