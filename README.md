@@ -38,3 +38,10 @@ Es una biblioteca de JavaScript de código abierto, utilizada para desarrollar i
 
 **NodeJS**
 Es un entorno de ejecución de JavaScript y multiplataforma para desarrollar aplicaciones de servidor. Orientado a eventos asíncronos y diseñado para crear aplicaciones escalables (back-end).
+
+## HISTORIAS DE USUARIO
+![](./images/reservar_asientos_de_un_vuelo.PNG)
+
+![](./images/hacer_reseña.PNG)
+
+![](./images/mostrar_vista_personalizada_dependiendo_del_tipo_de_usuario.PNG)
