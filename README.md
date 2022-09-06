@@ -40,7 +40,7 @@ Es una biblioteca de JavaScript de código abierto, utilizada para desarrollar i
 Es un entorno de ejecución de JavaScript y multiplataforma para desarrollar aplicaciones de servidor. Orientado a eventos asíncronos y diseñado para crear aplicaciones escalables (back-end).
 
 ## HISTORIAS DE USUARIO
-![](./images/LogiUsuario.PNG)
+![](./images/LoginUsuario.PNG)
 
 ![](./images/RegistroServicio.PNG)
 
@@ -59,3 +59,15 @@ Para garantizar la privacidad de la información de los usuarios, las contraseñ
 Para los endpoints que se utilizarán en la API REST se implementará JWT **(JSON Web Tokens)**, para brindar autentifiación de usuarios mediante tokens para poder obtener acceso a los recursos de los endpoints. De esta manera para que el usuario pueda obtener acceso a los datos del servidor, deberá enviar un token como forma de autentificación.
 
 También se realizarán pruebas unitarias y pruebas de integración para poder detectar cualquier tipo de error o vulnerabilidad que pueda ser explotada. Para proteger el sistema de vulnerabilidades conocidas se utilizará **Helmet**, mediante el cual se protegerán los encabezados HTTP.
+
+## ARQUITECTURA DEL SISTEMA
+
+### DIAGRAMA DE COMPONENTES
+
+![](./images/DiagramaComponentes.PNG)
+
+### DIAGRAMA DE DESPLIEGUE
+![](./images/DiagramaDespliegue.PNG)
+
+
+
