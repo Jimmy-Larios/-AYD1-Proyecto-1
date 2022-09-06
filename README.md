@@ -40,11 +40,18 @@ Es una biblioteca de JavaScript de código abierto, utilizada para desarrollar i
 Es un entorno de ejecución de JavaScript y multiplataforma para desarrollar aplicaciones de servidor. Orientado a eventos asíncronos y diseñado para crear aplicaciones escalables (back-end).
 
 ## HISTORIAS DE USUARIO
+![](./images/LogiUsuario.PNG)
+
+![](./images/RegistroServicio.PNG)
+
+![](./images/RegistroUsuario.PNG)
+
 ![](./images/reservar_asientos_de_un_vuelo.PNG)
 
 ![](./images/hacer_reseña.PNG)
 
 ![](./images/mostrar_vista_personalizada_dependiendo_del_tipo_de_usuario.PNG)
+
 
 ## SEGURIDAD DE LA APLICACIÓN
 Para garantizar la privacidad de la información de los usuarios, las contraseñas se guardarán encriptadas en la base de datos para lo cual se utilizará la librería **bcrypt** de NodeJS, antes de ingresar a la aplicación se verificará que tipo de usuario intententa tener acceso, para así poder mostrar una vista de acuerdo a los permisos que este posee. 
