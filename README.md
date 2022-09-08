@@ -40,17 +40,29 @@ Es una biblioteca de JavaScript de código abierto, utilizada para desarrollar i
 Es un entorno de ejecución de JavaScript y multiplataforma para desarrollar aplicaciones de servidor. Orientado a eventos asíncronos y diseñado para crear aplicaciones escalables (back-end).
 
 ## HISTORIAS DE USUARIO
-![](./images/LoginUsuario.PNG)
+![](./images/historias/LoginUsuario.PNG)
 
-![](./images/RegistroServicio.PNG)
+![](./images/historias/RegistroUsuario.PNG)
 
-![](./images/RegistroUsuario.PNG)
+![](./images/historias/RegistroServicio.PNG)
 
-![](./images/reservar_asientos_de_un_vuelo.PNG)
+[comment]: <> (Raul agrega aca tus historias)
 
-![](./images/hacer_reseña.PNG)
+![](./images/historias/Crear_auto.png)
 
-![](./images/mostrar_vista_personalizada_dependiendo_del_tipo_de_usuario.PNG)
+![](./images/historias/Buscar_Auto.png)
+
+![](./images/historias/Alquilar_auto.png)
+
+![](./images/historias/Crear_vuelo.png)
+
+![](./images/historias/Busacar_asientos.png)
+
+![](./images/historias/reservar_asientos_de_un_vuelo.PNG)
+
+![](./images/historias/hacer_reseña.PNG)
+
+![](./images/historias/mostrar_vista_personalizada_dependiendo_del_tipo_de_usuario.PNG)
 
 
 ## SEGURIDAD DE LA APLICACIÓN
@@ -69,5 +81,19 @@ También se realizarán pruebas unitarias y pruebas de integración para poder d
 ### DIAGRAMA DE DESPLIEGUE
 ![](./images/DiagramaDespliegue.PNG)
 
+## CASOS DE USO
+![](./images/Caso_de_uso_renta_autos.png)
+![](./images/Caso_de_uso_aerolinea.png)
+![](./images/Caso_de_uso_turista.png)
 
+## MOCKUPS PRINCIPALES
 
+![](./images/Mockup1.png)
+
+![](./images/Mockup2.png)
+
+![](./images/Mockup3.png)
+
+![](./images/Mockup4.png)
+
+![](./images/Mockup5.png)
