@@ -24,6 +24,30 @@ Ramas de apoyo:
 
 Se utilizará gitflow debido a que el proyecto se trabajará en equipo, y con esa estrategia se logrará mejorar la organización de branchs dentro del repositorio y, de esta forma, dar más fluidez al proceso de nuevos features y releases. 
 
+## REQUERIMIENTOS
+
+| REQUERIMIENTO | DESCRIPCIÓN | TIPO | PRIORIDAD |
+|---|---|---|---|
+| Login | Se deberá de contar con el formulario de inicio de sesión el cuál solicitarán credenciales como correo electrónico/usuario y contraseña,  dependiendo del tipo de credenciales se mostrará una vista u otra al usuario. | Funcional | Alta |
+| Registrar Usuario | Permitirá registrar a nuevos usuarios desde el sistema, se solicitarán los campos: nombre completo, usuario, fecha de nacimiento, correo  electrónico, contraseña y confirmación de la contraseña. | Funcional | Alta |
+| Registrar Hotel | Permitirá a los usuarios de tipo administrador registrar un nuevo hotel en la plataforma, se solicitarán los campos: nombre del hotel, país, ciudad, correo electrónico y contraseña. | Funcional | Alta |
+| Registrar Auto | Permitirá al administrador registrar autos para ser rentados, se solicitarán los campos: nombre, país, ciudad, correo electrónico y contraseña. | Funcional | Alta |
+| Registrar Aerolínea | Permitirá a los administradores registrar una nueva aerolínea, se solicitarán los campos: nombre, país, ciudad, correo electrónico y contraseña. | Funional | Alta |
+| Realizar Reservación en Hotel | Permitirá a los usuarios de tipo turista realizar una reservación, se solicitarán los campos: cantidad de habitaciones y se deberá de confirmar ingresando la contraseña del usuario. | Funcional | Alta |
+| Crear Habitación Disponible | Permitirá a los administradores registrar una habitación como disponible, se solicitarán los campos: fecha de disponibilidad y cantidad de habitaciones disponibles. | Funcional | Alta |
+| Consulta en Cascada de Hoteles | Permitirá a los usuarios buscar y generar consultas de hoteles en cascada por: país, ciudad, cantidad de personas y rango de precios y/o rango de fechas. | Funcional | Media |
+| Registrar Auto | Permitirá al usuario de tipo renta autos registrar un nuevo vehículo para ser rentado, se solicitarán los campos: marca, placa, modelo y precio. | Funcional | Alta |
+| Buscar Auto | Permitirá a los usuarios buscar un auto disponible filtrando por los campos: marca, modelo y rango de precio. | Funcional | Media |
+| Realizar alquiler | Permitirá a los usuarios de tipo turista alquilar un vehículo, se solicitarán los campos: cantidad de días y se deberá de confirmar con la contraseña. | Funcional | Alta |
+| Crear Vuelo | Permitirá a los administradores crear un nuevo vuelo, se solicitarán los campos: fecha de vuelo, destino, cantidad de asientos y precio. | Funcional | Alta |
+| Buscar Vuelo | Permitirá a los usuarios buscar vuelos disponibles, filtrando por: destino y rango de precios. | Funcional | Media |
+| Reservar Asientos de Vuelo | Permitirá a los usuarios de tipo turista reservar asientos, se solicitarán los campos: cantidad de asientos y se deberá de confirmar ingresando la contraseña. | Funcional | Alta |
+| Hacer reseña | Permitirá a los usuarios valorar un servicio prestado, las cuales se pondrán visualizar en la pantalla de inicio del usuario, se solicitarán los campos: tipo de servicio, descripción y se deberá confirmar ingresando la contraseña. | Funcional | Media |
+| Usar Servidor Para Backend | Se deberá utilizar un servidor dedicado únicamente solo para el backend, se utilizará NodeJS y Express. | No Funcional | Alta |
+| Usar Servidor Para Frontend | Se deberá utilizar un servidor dedicado únicamente para el frontend, se utlizará ReactJS. | No Funcional | Alta |
+| Usar Una BAse de Datos | Se deberá utilizar una base de datos para poder almacenar la información de la aplicación, se utilizará MongoDB. | No Funcional | Alta |
+| Responsive Design | Se deberá implementar el diseño responsivo, para que la aplicación se vea bien y funcione de forma correcta en diferentes dispositivos | No Funcional | Media |
+
 ## TECNOLOGÍAS A UTILIZAR
 Las tecnologías que se utilizarán sera el stack **MERN**, este conjunto de tecnologías incluye:
 
@@ -85,6 +109,8 @@ También se realizarán pruebas unitarias y pruebas de integración para poder d
 ![](./images/Caso_de_uso_renta_autos.png)
 ![](./images/Caso_de_uso_aerolinea.png)
 ![](./images/Caso_de_uso_turista.png)
+![](./images/Caso_de_uso_reservar_asiento.jpeg)
+![](./images/Caso_de_uso_hacer_reseña.jpeg)
 
 ## MOCKUPS PRINCIPALES
 
