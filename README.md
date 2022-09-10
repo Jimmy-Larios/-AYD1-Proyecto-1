@@ -128,3 +128,6 @@ También se realizarán pruebas unitarias y pruebas de integración para poder d
 
 ## DIAGRAMA DE CLASES
 ![](./images/DiagramadeClases.png)
+
+## DIAGRAMA DE BASES DE DATOS
+![](./images/DiagramaBaseDeDatos.png)
