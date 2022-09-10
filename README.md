@@ -64,7 +64,7 @@ Es una biblioteca de JavaScript de código abierto, utilizada para desarrollar i
 Es un entorno de ejecución de JavaScript y multiplataforma para desarrollar aplicaciones de servidor. Orientado a eventos asíncronos y diseñado para crear aplicaciones escalables (back-end).
 
 ## MAPEO DE HISTORIAS DE USUARIO
-![](./images/historias/mapeo_historias_de_usuario.jpeg)
+![](./images/mapeo_historias_de_usuario.jpeg)
 
 ## HISTORIAS DE USUARIO
 ![](./images/historias/LoginUsuario.PNG)
