@@ -106,6 +106,8 @@ También se realizarán pruebas unitarias y pruebas de integración para poder d
 ![](./images/DiagramaDespliegue.PNG)
 
 ## CASOS DE USO
+![](./images/Caso_de_Uso_Login.png)
+![](./images/Caso_de_uso_registro.png)
 ![](./images/Caso_de_uso_renta_autos.png)
 ![](./images/Caso_de_uso_aerolinea.png)
 ![](./images/Caso_de_uso_turista.png)
@@ -123,3 +125,6 @@ También se realizarán pruebas unitarias y pruebas de integración para poder d
 ![](./images/Mockup4.png)
 
 ![](./images/Mockup5.png)
+
+## DIAGRAMA DE CLASES
+![](./images/DiagramadeClases.png)
