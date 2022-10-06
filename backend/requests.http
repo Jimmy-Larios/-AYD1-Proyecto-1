@@ -1,0 +1,48 @@
+###
+POST http://localhost:3001/user/create HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Juan Ortega",
+    "email": "juanor@gmail.com"
+}
+
+###
+POST http://localhost:3001/hotel/create HTTP/1.1
+Content-Type: application/json
+
+{
+    "country": "Guatemala",
+    "city": "Guatemala"
+}
+
+###
+GET http://localhost:3001/hotel/getAll HTTP/1.1
+
+###
+POST http://localhost:3001/car/create HTTP/1.1
+Content-Type: application/json
+
+{
+    "carRegistration": "2930MDH",
+    "brand": "Toyota",
+    "model": "Prius"
+}
+
+###
+GET http://localhost:3001/car/getAll HTTP/1.1
+
+###
+POST http://localhost:3001/flight/create HTTP/1.1
+Content-Type: application/json
+
+{
+    "origin": "Spain",
+    "destination": "Guatemala"
+}
+
+###
+GET http://localhost:3001/flight/getAll HTTP/1.1
+
+### 
+GET http://localhost:3001/flight/getByDestination/:Guatemala HTTP/1.1
