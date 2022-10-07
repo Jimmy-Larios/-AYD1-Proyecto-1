@@ -1,26 +1,30 @@
 const express = require('express');
+const cors = require('cors');
 const mongoose = require('mongoose');
-// routes requires
-const userRoutes = require('./routes/users');
-const hotelRoutes = require('./routes/hotels');
-const carRoutes = require('./routes/cars');
-const flighRoutes = require('./routes/flights');
+
+const publicRoute = require('./routes/public.route');
+const turistaRoute = require('./routes/turista.route');
+const rentCarRoute = require('./routes/rentCar.route')
+const hotelRoute = require('./routes/hotel.route');
+const aerolineaRoute = require('./routes/aerolinea.route');
 
 // initializations
 const app = express();
-require('./database');
+require('./mongodb');
 
 // settings
 app.set('port', process.env.PORT || 3001);
 
 // middlewares
+app.use(cors());
 app.use(express.json());
 
-// routes
-app.use('/user', userRoutes);
-app.use('/hotel', hotelRoutes);
-app.use('/car', carRoutes);
-app.use('/flight', flighRoutes);
+//Services
+app.use('user', publicRoute);
+app.use('turista', turistaRoute);
+app.use('rentCar', rentCarRoute);
+app.use('hotel', hotelRoute);
+app.use('aerolinea', aerolineaRoute)
 
 // server initialization
 app.listen(app.get('port'), () => {

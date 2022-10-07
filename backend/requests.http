@@ -3,8 +3,12 @@ POST http://localhost:3001/user/create HTTP/1.1
 Content-Type: application/json
 
 {
-    "name": "Juan Ortega",
-    "email": "juanor@gmail.com"
+    "name": "Juan",
+    "lastName": "Niquilador",
+    "user": "jquilador",
+    "dateOfBirth": "2000-10-10",
+    "email": "juanor@gmail.com", 
+    "password": "juan123"
 }
 
 ###
@@ -26,7 +30,8 @@ Content-Type: application/json
 {
     "carRegistration": "2930MDH",
     "brand": "Toyota",
-    "model": "Prius"
+    "model": "Prius",
+    "price": 4545.53
 }
 
 ###

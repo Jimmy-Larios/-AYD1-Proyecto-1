@@ -13,6 +13,10 @@ const carSchema = mongoose.Schema({
     model: {
         type: String,
         required: true
+    },
+    price: {
+        type: Number,
+        required: true
     }
 });
 

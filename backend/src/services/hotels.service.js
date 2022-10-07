@@ -1,23 +1,24 @@
 const express = require('express');
-const hotelSchema = require('../models/hotel');
+const hotelSchema = require('../mongodb/models/hotel.model');
 
 const router = express.Router();
 
-// create hotel
-router.post('/create', (req, res) => {
+// createHotel
+const createHotel = (req, res) => {
     const hotel = hotelSchema(req.body);
-    hotel  
-        .save()
+    hotel.save()
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }));
-});
+}
 
-// get all hotels
-router.get('/getAll', (req, res) => {
-    hotelSchema
-        .find()
+// getAllHotels
+const getAllHotels = (req, res) => {
+    hotelSchema.find()
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }));
-});
+}
 
-module.exports = router;
+module.exports = {
+    createHotel,
+    getAllHotels
+};
