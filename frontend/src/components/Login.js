@@ -1,6 +1,41 @@
-import React from 'react';
+import React, {useState} from 'react';
+import Axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { URLDEFAULT } from '../consts/globales';
 
 const Login = () => {
+  let navigate = useNavigate();
+  const url = URLDEFAULT+"/user/login";
+  const [data, setData] = useState({
+    email: "",
+    password: "",
+  });
+
+  function submit(e) {
+    console.log(data.password);
+   
+      e.preventDefault();
+      Axios.post(url, {
+        
+        email: data.email,
+        password: data.password
+       
+        }).then (res => {
+          alert("Login Successful");
+          navigate("/login");
+        })
+        .catch((error) => {console.log(error)});
+      
+  }
+
+  function handle(e) {
+    const newData = {...data};
+    newData[e.target.id] = e.target.value;
+    setData(newData);
+    console.log(newData);
+  }
+
+
     return (
         <div id="login-section">
         <div id="main-wrapper" className="container">
@@ -16,16 +51,16 @@ const Login = () => {
                         </div>
                         <h6 className="h5 mb-0">Welcome to Full Trip</h6>
                         <p className="text-muted mt-2 mb-5">#IngenieríaEstáEnParo</p>
-                        <form>
+                        <form onSubmit={(e) => submit(e)}>
                           <div className="form-group">
                             <label htmlFor="email">Email address</label>
-                            <input type="email" className="form-control" id="exampleInputEmail1" />
+                            <input onChange={(e) => handle(e)} type="email" value={data.email} className="form-control" id="email" />
                           </div>
                           <div className="form-group mb-5">
                             <label htmlFor="password">Password</label>
-                            <input type="password" className="form-control" id="exampleInputPassword1" />
+                            <input onChange={(e) => handle(e)} type="password" value={data.password} className="form-control" id="password" />
                           </div>
-                          <button type="submit" className="btn btn-theme" id="btn-login">Login</button>
+                          <button type="submit"  className="btn btn-theme" id="btn-login">Login</button>
                         </form>
                       </div>
                     </div>
