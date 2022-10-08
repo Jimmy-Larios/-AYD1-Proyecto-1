@@ -24,6 +24,7 @@ app.use('/car', carRoutes);
 app.use('/flight', flighRoutes);
 app.use('/review', reviewRoutes);
 
+
 // server initialization
 app.listen(app.get('port'), () => {
     console.log(`server o port ${app.get('port')}`);
