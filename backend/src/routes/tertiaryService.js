@@ -1,20 +1,20 @@
 const express = require('express');
-const hotelSchema = require('../models/hotel');
+const tertiaryServiceSchema = require('../models/tertiaryService');
 
 const router = express.Router();
 
-// create hotel
+// create tertiary services
 router.post('/create', (req, res) => {
-    const hotel = hotelSchema(req.body);
-    hotel  
+    const tertiaryService = tertiaryServiceSchema(req.body);
+    tertiaryService  
         .save()
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }));
 });
 
-// get all hotels
+// get all tertiary services
 router.get('/getAll', (req, res) => {
-    hotelSchema
+    tertiaryServiceSchema
         .find()
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }));

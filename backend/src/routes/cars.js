@@ -6,7 +6,8 @@ const router = express.Router();
 // create car
 router.post('/create', (req, res) => {
     const car = carSchema(req.body);
-    car.save()
+    car
+        .save()
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }));
 });

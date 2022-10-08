@@ -12,4 +12,12 @@ router.post('/create', (req, res) => {
         .catch((error) => res.json({ message: error }));
 });
 
+// get all users
+router.get('/getAll', (req, res) => {
+    userSchema
+        .find()
+        .then((data) => res.json(data))
+        .catch((error) => res.json({ message: error }));
+});
+
 module.exports = router;

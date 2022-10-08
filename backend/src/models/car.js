@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const carSchema = mongoose.Schema({
     //placa
-    carRegistration: {
+    idCarRentalService: {
         type: String,
         required: true
     },
@@ -10,8 +10,16 @@ const carSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    carRegistration: {
+        type: String,
+        required: true
+    },
     model: {
         type: String,
+        required: true
+    },
+    price: {
+        type: Number,
         required: true
     }
 });
