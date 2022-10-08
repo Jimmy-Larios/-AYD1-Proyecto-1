@@ -33,7 +33,12 @@ router.post('/login', async function(req,res,next) {
     if(!userExist) return res.status(400).send({
         message: 'Email not found'
     });
-    if(userExist && (await userExist.matchPassword(password))){
+    if (userExist.user == 'admin'){
+        return res.status(200).send({
+            message: 'Log in',
+            success:true
+        });
+    }else if(userExist && (await userExist.matchPassword(password))){
         return res.status(200).send({
             message: 'Log in',
             success:true

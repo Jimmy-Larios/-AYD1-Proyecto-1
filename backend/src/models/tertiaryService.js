@@ -2,21 +2,21 @@ const mongoose = require('mongoose');
 
 const bcrypt =require("bcryptjs");
 
-const userShcema = mongoose.Schema({
+const tertiaryServiceShcema = mongoose.Schema({
+    typeService: {
+        type: Number, //(1->Hoteles, 2->rentade autos, 3->aerolinea)
+        required: true
+    },
     name: {
         type: String,
         required: true
     },
-    lastName: {
+    country: {
         type: String,
         required: true
     },
-    user: {
+    city: {
         type: String,
-        required: true
-    },
-    dateOfBirth: {
-        type: Date,
         required: true
     },
     email: {
@@ -29,7 +29,7 @@ const userShcema = mongoose.Schema({
     }
 });
 
-userShcema.pre('save', async function(next){
+tertiaryServiceShcema.pre('save', async function(next){
     if(!this.isModified('password')){
         next();
     }
@@ -37,9 +37,10 @@ userShcema.pre('save', async function(next){
     const salt= await bcrypt.genSalt(10)
     this.password= await bcrypt.hash(this.password,salt);
 })
-userShcema.methods.matchPassword= async function(enteredPass){
+
+tertiaryServiceShcema.methods.matchPassword= async function(enteredPass){
     return await bcrypt.compare(enteredPass, this.password);
 }
 
 
-module.exports = mongoose.model('User', userShcema);
+module.exports = mongoose.model('tertiaryService', tertiaryServiceShcema);

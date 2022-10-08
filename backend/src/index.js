@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 // routes requires
 const userRoutes = require('./routes/users');
+const tertiaryServiceRoutes = require('./routes/tertiaryService')
 const carRoutes = require('./routes/cars');
 const flighRoutes = require('./routes/flights');
 const reviewRoutes = require('./routes/reviews')
@@ -23,7 +24,7 @@ app.use('/user', userRoutes);
 app.use('/car', carRoutes);
 app.use('/flight', flighRoutes);
 app.use('/review', reviewRoutes);
-
+app.use('/tertiaryService', tertiaryServiceRoutes)
 
 // server initialization
 app.listen(app.get('port'), () => {
