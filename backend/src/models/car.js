@@ -6,11 +6,11 @@ const carSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    brand: {
+    carRegistration: {
         type: String,
         required: true
     },
-    carRegistration: {
+    brand: {
         type: String,
         required: true
     },

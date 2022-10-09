@@ -6,7 +6,9 @@ const userRoutes = require('./routes/users');
 const tertiaryServiceRoutes = require('./routes/tertiaryService')
 const carRoutes = require('./routes/cars');
 const flighRoutes = require('./routes/flights');
-const reviewRoutes = require('./routes/reviews')
+const reviewRoutes = require('./routes/reviews');
+const roomRoutes = require('./routes/rooms');
+const reserveRoomRoutes = require('./routes/reserveRooms');
 
 // initializations
 const app = express();
@@ -25,6 +27,8 @@ app.use('/car', carRoutes);
 app.use('/flight', flighRoutes);
 app.use('/review', reviewRoutes);
 app.use('/tertiaryService', tertiaryServiceRoutes)
+app.use('/room', roomRoutes);
+app.use('/reserveRoom', reserveRoomRoutes);
 
 // server initialization
 app.listen(app.get('port'), () => {

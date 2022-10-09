@@ -50,7 +50,7 @@ const SignUpTertiaryService = () => {
             <div className="card-body p-0">
               <div className="row no-gutters">
                 <div className="col-lg-6 d-none d-lg-inline-block">
-                  <div className="account-block rounded-right" id="register-block">
+                  <div className="account-block rounded-right" id="register-servicer-block">
                     <div className="overlay rounded-right" />
                     <div className="account-testimonial">
                       <h4 className="text-white mb-4">FULL TRIP</h4>
