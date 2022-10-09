@@ -30,6 +30,7 @@ const SignUp = () => {
         }).then (res => {
           alert("Register user successfully");
           navigate("/login");
+          
         })
         .catch((error) => {console.log(error)});
       } else {

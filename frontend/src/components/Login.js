@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import Axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { URLDEFAULT } from '../consts/globales';
+import {ReactSession} from 'react-client-session'
 
 const Login = () => {
   let navigate = useNavigate();
@@ -22,7 +23,14 @@ const Login = () => {
        
         }).then (res => {
           alert("Login Successful");
-          navigate("/login");
+          ReactSession.setStoreType("localStorage");
+  
+          console.log(res.data['id']);
+          console.log();
+          ReactSession.set("username", res.data['user']);
+          ReactSession.set("id", res.data['id']);
+          
+          navigate("/homeuser");
         })
         .catch((error) => {console.log(error)});
       

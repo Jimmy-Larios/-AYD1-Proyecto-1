@@ -27,15 +27,15 @@ router.post('/login', async function(req,res,next) {
     console.log(req.body.email, req.body.password)
     const { email, password } = req.body;
     let userExist = await userSchema.findOne({ email: req.body.email }).exec();
-
-    
-
+   
     if(!userExist) return res.status(400).send({
         message: 'Email not found'
     });
     if(userExist && (await userExist.matchPassword(password))){
         return res.status(200).send({
             message: 'Log in',
+            id:userExist._id,
+            user:userExist.user,
             success:true
         });
     }else{
