@@ -6,7 +6,7 @@ const flightSchema = mongoose.Schema({
         required: true
     },
     travelDate: {
-        type: String,
+        type: Date,
         required: true
     },
     origin: {
@@ -23,6 +23,10 @@ const flightSchema = mongoose.Schema({
     },
     price: {
         type: Number,
+        required: true
+    },
+    typeFlight: {
+        type: Number, /* (1 outbound trip, 2 round trip) */
         required: true
     }
 });

@@ -1,17 +1,20 @@
 import React from "react";
-import Navegacion from "./Navegacion";
 import { ReactSession } from 'react-client-session';
 
+import NavigationHotel from './NavigationHotel';
+import FormRegisterHotel from "./FormRegisterRoom";
 
 const HomeHotel = () => {
   const username = ReactSession.get("username");
   const idUser= ReactSession.get("id");
+  
   console.log(username);
     return (
-      <div>
-    <Navegacion/>
-    </div>
-    )
+      <>
+        <NavigationHotel/>
+        <FormRegisterHotel/>
+      </>
+    );
 };
 
 export default HomeHotel;

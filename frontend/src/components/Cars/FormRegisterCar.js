@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { URLDEFAULT } from "../consts/globales";
+import { URLDEFAULT } from "../../consts/globales";
 
 const FormRegisterCar = () => {
   let navigate = useNavigate();
@@ -25,7 +25,7 @@ const FormRegisterCar = () => {
       price: data.price
     }).then(res => {
       alert("Register car successfully");
-      navigate("/registerCar");
+      navigate("/homeCarros");
     })
     .catch((error) => console.log(error));
   }
@@ -38,6 +38,7 @@ const FormRegisterCar = () => {
   }
 
   return (
+      
       <div id="register-section">
         <div id="main-wrapper" className="container">
           <div className="row justify-content-center">

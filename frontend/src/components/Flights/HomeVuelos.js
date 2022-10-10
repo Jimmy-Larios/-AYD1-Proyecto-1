@@ -1,6 +1,8 @@
 import React from "react";
-import Navegacion from "./Navegacion";
 import { ReactSession } from 'react-client-session';
+
+import NavigationFlight from "./NavigationFlight";
+import FormRegisterFlight from "./FormRegisterFlight";
 
 
 const HomeVuelos = () => {
@@ -8,9 +10,10 @@ const HomeVuelos = () => {
   const idUser= ReactSession.get("id");
   console.log(username);
     return (
-      <div>
-    <Navegacion/>
-    </div>
+      <>
+        <NavigationFlight/>
+        <FormRegisterFlight/>
+      </>
     )
 };
 
