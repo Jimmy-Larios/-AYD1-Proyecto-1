@@ -36,14 +36,14 @@ router.post('/login', async function(req,res,next) {
             success:true,
             id:userExist._id,
             user:userExist.user,
-            tipo:'0'
+            tipo:'admin'
         });
     }else if(userExist && (await userExist.matchPassword(password))){
         return res.status(200).send({
             message: 'Log in',
             id:userExist._id,
             user:userExist.user,
-            tipo:'1',
+            tipo:'usr',
             success:true
         });
     }else{
