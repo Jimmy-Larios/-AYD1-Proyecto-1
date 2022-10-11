@@ -11,45 +11,23 @@ describe('Test e2e', () => {
 			expect(typeof body).toBe(typeof []);
 			expect(statusCode).toBe(200);
 		});
-		test('login with admin', async () => {
-			const { body: { success }, statusCode } = await request(app).post('/user/login').send({
-				email: 'admin@gmail.com',
-				password: 'admin123'
+		test('registro de turista', async () => {
+			const { statusCode } = await request(app).post('/user/create').send({
+				name: 'test',
+				lastName: 'test',
+				user: 'test',
+				dateOfBirth: '2000-10-10',
+				email: 'test',
+				password: 'test'
 			});
-			expect(success).toBe(true);
 			expect(statusCode).toBe(200);
 		});
-		test('login bad', async () => {
-			const { body: { success }, statusCode } = await request(app).post('/user/login').send({
-				email: 'admin@gmail.com',
-				password: 'admin123'
+		test('inicio de sesion', async () => {
+			const { statusCode } = await request(app).post('/user/login').send({
+				email: 'test',
+				password: 'test',
+				service: false
 			});
-			expect(success).toBe(true);
-			expect(statusCode).toBe(200);
-		});
-	});
-	describe('cars', () => {
-		test('get all', async () => {
-			const { body, statusCode } = await request(app).get('/car/getAll');
-			expect(typeof body).toBe(typeof []);
-			expect(statusCode).toBe(200);
-		});
-	});
-	describe('flight', () => {
-		test('get all', async () => {
-			const { body, statusCode } = await request(app).get('/flight/getAll');
-			expect(typeof body).toBe(typeof []);
-			expect(statusCode).toBe(200);
-		});
-		test('error on get destination', async () => {
-			const { statusCode } = await request(app).get('/getByDestination/error');
-			expect(statusCode).toBe(404);
-		});
-	});
-	describe('review', () => {
-		test('get all', async () => {
-			const { body, statusCode } = await request(app).get('/review/getAll');
-			expect(typeof body).toBe(typeof []);
 			expect(statusCode).toBe(200);
 		});
 	});
@@ -59,18 +37,66 @@ describe('Test e2e', () => {
 			expect(typeof body).toBe(typeof []);
 			expect(statusCode).toBe(200);
 		});
-	});
-	describe('room', () => {
-		test('get all', async () => {
-			const { body, statusCode } = await request(app).get('/room/getAll');
-			expect(typeof body).toBe(typeof []);
+		test('registro de servicio tecnico', async () => {
+			const { statusCode } = await request(app).post('/tertiaryService/create').send({
+				typeService: 'test',
+				name: 'test',
+				country: 'test',
+				city: 'test',
+				email: 'test',
+				password: 'test'
+			});
 			expect(statusCode).toBe(200);
 		});
 	});
-	describe('reserveRoom', () => {
+	describe('cars', () => {
 		test('get all', async () => {
-			const { body, statusCode } = await request(app).get('/reserveRoom/getAll');
+			const { body, statusCode } = await request(app).get('/car/getAll');
 			expect(typeof body).toBe(typeof []);
+			expect(statusCode).toBe(200);
+		});
+		test('registro de carros', async () => {
+			const { statusCode } = await request(app).post('/car/create').send({
+				idCarRentalService: 'test',
+				carRegistration: 'test',
+				brand: 'test',
+				model: 'test',
+				price: 0
+			});
+			expect(statusCode).toBe(200);
+		});
+	});
+	describe('flight', () => {
+		test('get all', async () => {
+			const { body, statusCode } = await request(app).get('/flight/getAll');
+			expect(typeof body).toBe(typeof []);
+			expect(statusCode).toBe(200);
+		});
+		test('registro de vuelos', async () => {
+			const { statusCode } = await request(app).post('/flight/create').send({
+				idAirlineService: 'test',
+				travelDate: '2000-10-10',
+				origin: 'test',
+				destination: 'test',
+				availableSeats: 100,
+				price: 0,
+				typeFlight: 1
+			});
+			expect(statusCode).toBe(200);
+		});
+	});
+	describe('review', () => {
+		test('get all', async () => {
+			const { body, statusCode } = await request(app).get('/review/getAll');
+			expect(typeof body).toBe(typeof []);
+		});
+		test('registro de reseñas', async () => {
+			const { statusCode } = await request(app).post('/review/create').send({
+				idUser: '6345823b82608d44358fff98',
+				idService: 'test',
+				description: 'test',
+				confirmPassword: 'test'
+			});
 			expect(statusCode).toBe(200);
 		});
 	});
