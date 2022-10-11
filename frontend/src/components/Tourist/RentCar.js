@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import '../../styles/card.css';
 import Axios from "axios";
 import { URLDEFAULT } from "../../consts/globales";
-import NavigationHotel from "./NavigationHotel";
+import NavigationUser from "./NavigationUser";
 
-const SeeCars = () => {
-    const url = URLDEFAULT + "/room/getAll";
+const RentCar = () => {
+    const url = URLDEFAULT + "/car/getAll";
 
     const [data, setData] = useState([]);
 
@@ -22,14 +22,18 @@ const SeeCars = () => {
         return (
             <div className="courses-container">
             <div className="course">
-              <div className="course-preview" id="card-room">
-                <h6>HABITACIÓN</h6>
-                <h2>HOTEL</h2>
+              <div className="course-preview">
+                <h6>CARRO</h6>
+                <h2>{data.carRegistration}</h2>
+                <a href="#">View all chapters <i className="fas fa-chevron-right" /></a>
               </div>
               <div className="course-info">
                 <h6>{data._id}</h6>
-                <h2>No. Personas: {data.amountPeople}</h2>
-                {/* <button className="btn-card">Submit</button> */}
+                <h2>{data.brand}</h2>
+                <h4>{data.model}</h4>
+                <h4>Q. {data.price}</h4>
+                <p>que pdo</p>
+                <button className="btn-card">Rentar</button>
               </div>
             </div>
           </div>
@@ -38,10 +42,10 @@ const SeeCars = () => {
 
     return (
         <>
-            <NavigationHotel/>
+            <NavigationUser/>
             { arr }
         </>
     )
 };
 
-export default SeeCars;
+export default RentCar;

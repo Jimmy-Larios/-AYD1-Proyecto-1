@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import Axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { URLDEFAULT } from "../consts/globales";
+import { URLDEFAULT } from "../../consts/globales";
+
+import NavigationUser from "./NavigationUser";
 
 const FormRegisterReserveRoom = () => {
     let navigate = useNavigate();
@@ -35,7 +37,9 @@ const FormRegisterReserveRoom = () => {
     }    
 
     return (
-        <div id="register-section">
+      <>
+        <NavigationUser/>
+                <div id="register-section">
         <div id="main-wrapper" className="container">
           <div className="row justify-content-center">
             <div className="col-xl-10">
@@ -93,6 +97,7 @@ const FormRegisterReserveRoom = () => {
           </div>
         </div>
       </div>
+      </>
     )
 } 
 

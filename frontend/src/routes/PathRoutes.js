@@ -4,9 +4,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import FormRegisterUser from '../components/FormRegisterUser';
 import Login from '../components/Login';
 import FormRegisterTertiaryService from '../components/FormRegisterTertiaryService';
-import FormRegisterReserveRoom from '../components/FormRegisterReserveRoom';
-import HomeUsers from '../components/HomeUsers';
-import Navegacion from '../components/Navegacion';
+import FormRegisterReserveRoom from '../components/Tourist/FormRegisterReserveRoom';
+import HomeUsers from '../components/Tourist/HomeUsers';
 import {ReactSession} from 'react-client-session'
 import HomeVuelos from '../components/Flights/HomeVuelos';
 import HomeCarros from '../components/Cars/HomeCarros';
@@ -15,6 +14,9 @@ import HomeHotel from '../components/Hotels/HomeHotel'
 import SeeCars from '../components/Cars/SeeCars';
 import SeeRooms from '../components/Hotels/SeeRooms';
 import SeeFlights from '../components/Flights/SeeFlights';
+
+import RentCar from '../components/Tourist/RentCar';
+import BuyTicket from '../components/Tourist/BuyTicket';
 
 const RoutesPath = () => {
 	ReactSession.setStoreType("localStorage");
@@ -31,11 +33,13 @@ const RoutesPath = () => {
 					<Route exact path={'/homeHotel'} element={<HomeHotel/>}/>
 					<Route exact path={'/homeVuelos'} element={<HomeVuelos/>}/>
 					<Route exact path={'/homeCarros'} element={<HomeCarros/>}/>
-					<Route exact path={'/Navegacion'} element={<Navegacion/>}/>
 
 					<Route exact path={'/SeeCars'} element={<SeeCars/>}/>
 					<Route exact path={'/SeeRooms'} element={<SeeRooms/>}/>
 					<Route exact path={'/SeeFlights'} element={<SeeFlights/>}/>
+
+					<Route exact path={'/RentCar'} element={<RentCar/>}/>
+					<Route exact path={'/BuyTicket'} element={<BuyTicket/>}/>
 				</Routes>
 			</BrowserRouter>
 		</div>
