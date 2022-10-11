@@ -85,7 +85,7 @@ const FormRegisterReserveCar = () => {
                         
                         <div className="form-group mb-5">
                             <label htmlFor="todo">Reservation Date</label>
-                            <input onChange={(e) => handle(e)} id="rentDate" value={data.startDate} type="date" className="form-control"/>
+                            <input onChange={(e) => handle(e)} id="startDate" value={data.startDate} type="date" className="form-control"/>
                         </div>
                         <div className="form-group mb-5">
                           <label htmlFor="todo">Number of Days</label>
