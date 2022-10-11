@@ -24,7 +24,7 @@ const SignUpTertiaryService = () => {
         country: data.country,
         city: data.city,
         email: data.email,
-        password: data.password
+        password: data.password,
         }).then (res => {
           alert("Register tertiaryService successfully");
         })
@@ -69,13 +69,8 @@ const SignUpTertiaryService = () => {
 
                     <form onSubmit={(e) => submit(e)}>
                       <div className="form-group">
-                        <label htmlFor="todo">type Service</label>
-                        <select nChange={(e) => handle(e)} id="typeService" value={data.typeService} className="form-select">
-                            <option selected>Select a type service</option>
-                            <option value="1">Hotel</option>
-                            <option value="2">Agency Rent Car</option>
-                            <option value="3">Aeroline</option>
-                        </select>
+                        <label htmlFor="todo">Type Service</label>
+                        <input onChange={(e) => handle(e)} id="typeService" value={data.typeService} type="number" className="form-control" placeholder='1->Hoteles, 2->rentade autos, 3->aerolinea'/>
                       </div>
 
                       <div className="form-group">
@@ -85,12 +80,12 @@ const SignUpTertiaryService = () => {
 
                       <div className="form-group">
                         <label htmlFor="todo">Country</label>
-                        <input onChange={(e) => handle(e)} id="lastName" value={data.lastName} type="text" className="form-control"/>
+                        <input onChange={(e) => handle(e)} id="country" value={data.country} type="text" className="form-control"/>
                       </div>
                       
                       <div className="form-group">
                         <label htmlFor="todo">City</label>
-                        <input onChange={(e) => handle(e)} id="user" value={data.user} type="text" className="form-control"/>
+                        <input onChange={(e) => handle(e)} id="city" value={data.city} type="text" className="form-control"/>
                       </div>
                       
                       <div className="form-group mb-5">
