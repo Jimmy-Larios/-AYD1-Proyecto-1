@@ -9,6 +9,10 @@ const buyTicketSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    reservationDate: {
+        type: String,
+        required: true
+    },
     numberOfSeats: {
         type: String,
         required: true

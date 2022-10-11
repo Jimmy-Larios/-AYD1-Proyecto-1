@@ -1,35 +1,50 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { ReactSession } from 'react-client-session';
+import { useLocation } from 'react-router-dom';
 import { URLDEFAULT } from "../../consts/globales";
 
 import NavigationUser from "./NavigationUser";
 
 const FormRegisterReserveFlight = () => {
-  let navigate = useNavigate();
   const url = URLDEFAULT+"/buyTicket/create";
+  const location = useLocation();
+  const idUser= ReactSession.get("id");
 
   const [data, setData] = useState({
     idUser: "",
     idFlight: "",
+    reservationDate: "",
     numberOfSeats: "",
     confirmPassword: ""
   });
 
+  useEffect(() => {
+    setData({
+      idUser: idUser,
+      idFlight: location.state.idSerivice,
+      reservationDate: "",
+      numberOfSeats: "",
+      confirmPassword:""
+    });
+  }, []);
+  
   function submit(e) {
     e.preventDefault();
     Axios.post(url, {
-      idUsuario: data.idUser,
+      idUser: data.idUser,
       idFlight: data.idFlight,
+      reservationDate: data.reservationDate,
       numberOfSeats: data.numberOfSeats,
       confirmPassword: data.confirmPassword
       }).then (res => {
         alert("Register successfully");
         setData({
-          idUser : '',
-          idFlight : '',
-          numberOfSeats: '',
-          confirmPassword: ''
+          idUser: "",
+          idFlight: "",
+          reservationDate: "",
+          numberOfSeats: "",
+          confirmPassword: ""
         });
       }).catch((error) => {console.log(error)});
   }
@@ -66,6 +81,11 @@ const FormRegisterReserveFlight = () => {
                         <div className="form-group mb-5">
                           <label htmlFor="todo">Id Flight</label>
                           <input onChange={(e) => handle(e)} id="idFlight" value={data.idFlight} type="text" className="form-control"/>
+                        </div>
+
+                        <div className="form-group mb-5">
+                          <label htmlFor="todo">Reservation Date</label>
+                          <input onChange={(e) => handle(e)} id="reservationDate" value={data.reservationDate} type="date" className="form-control"/>
                         </div>
 
                         <div className="form-group mb-5">

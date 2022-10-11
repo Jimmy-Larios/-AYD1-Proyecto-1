@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import '../../styles/card.css';
 import Axios from "axios";
+import { useNavigate } from 'react-router-dom';
 import { URLDEFAULT } from "../../consts/globales";
 import NavigationUser from "./NavigationUser";
 
 const BuyTicket = () => {
     const url = URLDEFAULT + "/flight/getAll";
-
+    let navigate = useNavigate();
     const [data, setData] = useState([]);
 
     useEffect(() => {
@@ -34,7 +35,15 @@ const BuyTicket = () => {
                 <h5>Destino: {data.destination}</h5>
                 <h5>Asientos Disponibles: {data.availableSeats}</h5>
                 <h5>Precio: Q. {data.price}</h5>
-                <button className="btn-card">Comprar</button>
+                <button 
+                  className="btn-card"
+                  onClick={() => {
+                  navigate('/registerReserveFlight', {
+                    state:{
+                      idSerivice: data._id
+                    }});
+                  }}
+                >Comprar</button>
               </div>
             </div>
           </div>

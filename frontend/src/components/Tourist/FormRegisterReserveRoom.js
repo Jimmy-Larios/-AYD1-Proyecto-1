@@ -1,21 +1,33 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { ReactSession } from 'react-client-session';
+import { useLocation} from "react-router-dom";
 import { URLDEFAULT } from "../../consts/globales";
 
 import NavigationUser from "./NavigationUser";
 
 const FormRegisterReserveRoom = () => {
-    let navigate = useNavigate();
     const url = URLDEFAULT + "/reserveRoom/create";
+    const location = useLocation();
+    const idUser= ReactSession.get("id");
 
     const [data, setData] = useState({
-        idUser: "",
-        idRoom: "",
+      idUser: "",
+      idRoom: "",
+      reservationDate: "",
+      numberDays: "",
+      confirmPassword:""
+    });
+
+    useEffect(() => {
+      setData({
+        idUser: idUser,
+        idRoom: location.state.idSerivice,
         reservationDate: "",
         numberDays: "",
         confirmPassword:""
-    });
+      });
+    }, []);
 
     function submit(e) {
         e.preventDefault();

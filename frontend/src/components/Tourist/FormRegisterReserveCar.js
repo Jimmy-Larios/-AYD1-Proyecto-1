@@ -1,38 +1,50 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { ReactSession } from 'react-client-session';
+import { useLocation } from 'react-router-dom';
 import { URLDEFAULT } from '../../consts/globales';
 
 import NavigationUser from "./NavigationUser";
 
 const FormRegisterReserveCar = () => {
-  let navigate = useNavigate();
   const url = URLDEFAULT+"/rentCar/create";
+  const location = useLocation();
+  const idUser= ReactSession.get("id");
 
   const [data, setData] = useState({
     idUser: "",
-    idAuto: "",
-    rentDate: "",
-    numberDays: "",
+    idCar: "",
+    startDate: "",
+    numberOfDays: "",
     confirmPassword: ""
   });
+
+  useEffect(() => {
+    setData({
+      idUser: idUser,
+      idCar: location.state.idSerivice,
+      startDate: "",
+      numberOfDays: "",
+      confirmPassword:""
+    });
+  }, []);
 
   function submit(e) {
     e.preventDefault();
     Axios.post(url, {
-      idUsuario: data.idUser,
-      idAuto: data.idAuto,
-      rentDate: data.rentDate,
-      diasRenta: data.numberDays,
+      idUser: data.idUser,
+      idCar: data.idCar,
+      startDate: data.startDate,
+      numberOfDays: data.numberOfDays,
       confirmPassword: data.confirmPassword
       }).then (res => {
         alert("Register successfully");
         setData({
-          idUser : '',
-          idAuto : '',
-          rentDate: '',
-          numberDays: '',
-          confirmPassword: ''
+          idUser: "",
+          idCar: "",
+          startDate: "",
+          numberOfDays: "",
+          confirmPassword: ""
         });
       }).catch((error) => {console.log(error)});
   }
@@ -68,19 +80,18 @@ const FormRegisterReserveCar = () => {
 
                         <div className="form-group mb-5">
                             <label htmlFor="todo">Id Auto</label>
-                            <input onChange={(e) => handle(e)} id="idAuto" value={data.idAuto} type="text" className="form-control"/>
+                            <input onChange={(e) => handle(e)} id="idAuto" value={data.idCar} type="text" className="form-control"/>
                         </div>
                         
                         <div className="form-group mb-5">
                             <label htmlFor="todo">Reservation Date</label>
-                            <input onChange={(e) => handle(e)} id="rentDate" value={data.rentDate} type="date" className="form-control"/>
+                            <input onChange={(e) => handle(e)} id="rentDate" value={data.startDate} type="date" className="form-control"/>
                         </div>
-
                         <div className="form-group mb-5">
-                                <label htmlFor="todo">Number of Days</label>
-                                <input onChange={(e) => handle(e)} id="numberDays" value={data.numberDays} type="number" className="form-control"/>
+                          <label htmlFor="todo">Number of Days</label>
+                          <input onChange={(e) => handle(e)} id="numberOfDays" value={data.numberOfDays} type="number" className="form-control"/>
                         </div>
-
+       
                         <div className="form-group">
                             <label htmlFor="todo">Confirm Password</label>
                             <input onChange={(e) => handle(e)} id="confirmPassword" value={data.confirmPassword} type="password" className="form-control"/>

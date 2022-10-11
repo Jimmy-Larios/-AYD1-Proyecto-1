@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import '../../styles/card.css';
 import Axios from "axios";
+import { useNavigate } from 'react-router-dom';
 import { URLDEFAULT } from "../../consts/globales";
+
 import NavigationUser from "./NavigationUser";
 
 const RentCar = () => {
     const url = URLDEFAULT + "/car/getAll";
-
+    let navigate = useNavigate();
     const [data, setData] = useState([]);
 
     useEffect(() => {
@@ -33,7 +35,15 @@ const RentCar = () => {
                 <h4>{data.model}</h4>
                 <h4>Q. {data.price}</h4>
                 <p>que pdo</p>
-                <button className="btn-card">Rentar</button>
+                <button 
+                  className="btn-card"
+                  onClick={() => {
+                  navigate('/registerReserveCar', {
+                    state:{
+                      idSerivice: data._id
+                    }});
+                  }}
+                >Rentar</button>
               </div>
             </div>
           </div>

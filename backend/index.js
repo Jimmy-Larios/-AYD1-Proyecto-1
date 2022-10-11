@@ -2,19 +2,19 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 // routes requires
-const userRoutes = require('./routes/users');
-const tertiaryServiceRoutes = require('./routes/tertiaryService')
-const carRoutes = require('./routes/cars');
-const flighRoutes = require('./routes/flights');
-const roomRoutes = require('./routes/rooms');
-const reserveRoomRoutes = require('./routes/reserveRooms');
-const rentCarRoutes = require('./routes/rentCar');
-const buyTickets = require('./routes/buyTicket');
-const reviewRoutes = require('./routes/reviews');
+const userRoutes = require('./src/routes/users');
+const tertiaryServiceRoutes = require('./src/routes/tertiaryService')
+const carRoutes = require('./src/routes/cars');
+const flighRoutes = require('./src/routes/flights');
+const roomRoutes = require('./src/routes/rooms');
+const reserveRoomRoutes = require('./src/routes/reserveRooms');
+const rentCarRoutes = require('./src/routes/rentCar');
+const buyTickets = require('./src/routes/buyTicket');
+const reviewRoutes = require('./src/routes/reviews');
 
 // initializations
 const app = express();
-require('./database');
+require('./src/database');
 
 // settings
 app.set('port', process.env.PORT || 3001);

@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import '../../styles/card.css';
 import Axios from "axios";
-import { ReactSession } from 'react-client-session';
+import { useNavigate } from 'react-router-dom';
 import { URLDEFAULT } from "../../consts/globales";
+
 import NavigationUser from "./NavigationUser";
 
 const HomeUsers = () => {
   const url = URLDEFAULT + "/room/getAll";
-
+  let navigate = useNavigate();
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -33,7 +34,15 @@ const HomeUsers = () => {
             <div className="course-info">
               <h6>{data._id}</h6>
               <h2>No. Personas: {data.amountPeople}</h2>
-              <button className="btn-card">Reservar</button>
+              <button 
+                className="btn-card"
+                onClick={() => {
+                  navigate('/registerReserveRoom', {
+                    state:{
+                      idSerivice: data._id
+                    }});
+                }}
+              >Reservar</button>
             </div>
           </div>
         </div>
