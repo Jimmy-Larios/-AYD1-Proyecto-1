@@ -31,6 +31,8 @@ app.use('/room', roomRoutes);
 app.use('/reserveRoom', reserveRoomRoutes);
 
 // server initialization
-app.listen(app.get('port'), () => {
+const server = app.listen(app.get('port'), () => {
     console.log(`server o port ${app.get('port')}`);
 });
+
+module.exports = server

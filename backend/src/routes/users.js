@@ -4,7 +4,6 @@ const userSchema = require('../models/user');
 const router = express.Router();
 const bcrypt=require("bcryptjs");
 
-const authUser =require('../controllers/userControllers')
 // create user
 router.post('/create', (req, res) => {
     const user = userSchema(req.body);
