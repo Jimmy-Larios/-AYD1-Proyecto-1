@@ -1,6 +1,6 @@
 const express = require('express');
 const userSchema = require('../models/user');
-const reserveRoomSchema = require('../models/reserveRoom');
+const reserveCarSchema = require('../models/rentCar');
 
 const router = express.Router();
 
@@ -14,7 +14,7 @@ router.post('/create', async (req, res) => {
         });
 
     if (userExist && (await userExist.matchPassword(confirmPassword)))
-        return reserveRoomSchema(req.body)
+        return reserveCarSchema(req.body)
         .save()
         .then((data) => res.status(200).json(data))
         .catch((error) => res.status(500).json({ message: error }))
