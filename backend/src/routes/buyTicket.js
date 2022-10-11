@@ -1,6 +1,6 @@
 const express = require('express');
 const userSchema = require('../models/user');
-const reserveRoomSchema = require('../models/reserveRoom');
+const buyTicketSchema = require('../models/buyTicket');
 
 const router = express.Router();
 
@@ -14,20 +14,13 @@ router.post('/create', async (req, res) => {
         });
 
     if (userExist && (await userExist.matchPassword(confirmPassword)))
-        return reserveRoomSchema(req.body)
+        return buyTicketSchema(req.body)
         .save()
         .then((data) => res.status(200).json(data))
         .catch((error) => res.status(500).json({ message: error }))
     else res.status(400).send({
         message: 'Password did not match'
     });
-});
-
-router.get('/getAll', (req, res) => {
-    reserveRoomSchema
-        .find()
-        .then((data) => res.json(data))
-        .catch((error) => res.json({ message: error }));
 });
 
 module.exports = router;

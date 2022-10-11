@@ -18,7 +18,7 @@ const NavigationUser = () => {
                 <a className="nav-link" href="/RentCar">Rentar Auto</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/BuyTicket">Comprar Boleto</a>
+                <a className="nav-link" href="/BuyTickets">Comprar Boleto</a>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#">Reseñas</a>
