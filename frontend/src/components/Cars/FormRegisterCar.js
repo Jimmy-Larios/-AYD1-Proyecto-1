@@ -2,13 +2,17 @@ import React, { useState } from "react";
 import Axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { URLDEFAULT } from "../../consts/globales";
+import {ReactSession} from 'react-client-session'
 
 const FormRegisterCar = () => {
   let navigate = useNavigate();
   const url = URLDEFAULT + "/car/create";
-
+  const username = ReactSession.get("username");
+  const idUser= ReactSession.get("id");
+  console.log(username);
+  console.log(idUser);
   const [data, setData] = useState({
-    idCarRentalService: "",
+   
     carRegistration: "",
     brand: "",
     model: "",
@@ -18,7 +22,7 @@ const FormRegisterCar = () => {
   function submit(e) {
     e.preventDefault();
     Axios.post(url, {
-      idCarRentalService: data.idCarRentalService,
+      idCarRentalService: idUser,
       carRegistration: data.carRegistration,
       brand: data.brand,
       model: data.model,
@@ -55,10 +59,6 @@ const FormRegisterCar = () => {
                         </div>
                         <form onSubmit={(e) => submit(e)}>
                           
-                          <div className="form-group">
-                            <label htmlFor="todo">ID Car Rental Service</label>
-                            <input onChange={(e) => handle(e)} id="idCarRentalService" value={data.idCarRentalService} type="text" className="form-control"/>
-                          </div>
 
                           <br></br>
                           <br></br>

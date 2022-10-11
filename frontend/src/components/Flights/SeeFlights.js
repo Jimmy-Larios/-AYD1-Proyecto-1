@@ -3,14 +3,15 @@ import '../../styles/card.css';
 import Axios from "axios";
 import { URLDEFAULT } from "../../consts/globales";
 import NavigationFlight from "./NavigationFlight";
+import {ReactSession} from 'react-client-session'
 
 const SeeFlights = () => {
-    const url = URLDEFAULT + "/flight/getAll";
-
+    const url = URLDEFAULT + "/flight/getFlysServ";
+    const idUser= ReactSession.get("id");
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        Axios.get(url)
+        Axios.post(url,{idServ:idUser})
             .then(res => {
                 console.log(`response ${res.data}`);
                 setData(res.data);

@@ -2,20 +2,21 @@ import React, { useState } from "react";
 import Axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { URLDEFAULT } from "../../consts/globales";
+import {ReactSession} from 'react-client-session';
 
 const FormRegisterRoom = () => {
     let navigate = useNavigate();
     const url = URLDEFAULT + "/room/create";
-
+    const idUser= ReactSession.get("id");
     const [data, setData] = useState({
-        idHotel: "",
+        
         amountPeople: ""
     });
 
     function submit(e) {
         e.preventDefault();
         Axios.post(url, {
-            idHotel: data.idHotel,
+            idHotel: idUser,
             amountPeople: data.amountPeople
         }).then(res => {
             alert("Register room successfully");
@@ -47,10 +48,6 @@ const FormRegisterRoom = () => {
 
                         <form onSubmit={(e) => submit(e)}>
                           
-                          <div className="form-group mb-5">
-                            <label htmlFor="todo">Id Hotel</label>
-                            <input onChange={(e) => handle(e)} id="idHotel" value={data.idHotel} type="text" className="form-control"/>
-                          </div>
 
                           <div className="form-group mb-5">
                             <label htmlFor="todo">Amount of people</label>
