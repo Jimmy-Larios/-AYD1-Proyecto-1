@@ -12,4 +12,11 @@ router.post('/create', (req, res) => {
         .catch((error) => res.json({ message: error }));
 });
 
+router.get('/getAll', (req, res) => {
+    reviewSchema
+        .find()
+        .then((data) => res.json(data))
+        .catch((error) => res.json({ message: error }));
+});
+
 module.exports = router;
