@@ -20,4 +20,10 @@ router.get('/getAll', (req, res) => {
         .catch((error) => res.json({ message: error }));
 });
 
+router.post('/getRoomServ', async function(req,res,next) {
+    let singlePerson = await roomSchema.find({idHotel:req.body.idServ}).exec();
+  return res.json(singlePerson);
+
+});
+
 module.exports = router;

@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import Axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { URLDEFAULT } from "../../consts/globales";
+import {ReactSession} from 'react-client-session'
 
 const FormRegisterFlight = () => {
     let navigate = useNavigate();
     const url = URLDEFAULT + "/flight/create";
-
+    const idUser= ReactSession.get("id");
     const [data, setData] = useState({
-        idAirlineService: "",
+        
         travelDate: "",
         origin: "",
         destination: "",
@@ -20,7 +21,7 @@ const FormRegisterFlight = () => {
     function submit(e) {
         e.preventDefault();
         Axios.post(url, {
-            idAirlineService: data.idAirlineService,
+            idAirlineService:idUser,
             travelDate: data.travelDate,
             origin: data.origin,
             destination: data.destination,
@@ -57,10 +58,7 @@ const FormRegisterFlight = () => {
                         
                         <form onSubmit={(e) => submit(e)}>
 
-                          <div className="form-group">
-                            <label htmlFor="todo">Id Airline</label>
-                            <input onChange={(e) => handle(e)} id="idAirlineService" value={data.idAirlineService} type="text" className="form-control"/>
-                          </div>
+                         
 
                           <div className="form-group">
                             <label htmlFor="todo">Travel Date</label>

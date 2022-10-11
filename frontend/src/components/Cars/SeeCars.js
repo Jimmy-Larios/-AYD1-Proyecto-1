@@ -3,14 +3,15 @@ import '../../styles/card.css';
 import Axios from "axios";
 import { URLDEFAULT } from "../../consts/globales";
 import NavegationCar from "./NavigationCar";
+import {ReactSession} from 'react-client-session'
 
 const SeeCars = () => {
-    const url = URLDEFAULT + "/car/getAll";
-
+    const url = URLDEFAULT + "/car/getCarsServ";
+    const idUser= ReactSession.get("id");
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        Axios.get(url)
+        Axios.post(url,{idServ:idUser})
             .then(res => {
                 console.log(`response ${res.data}`);
                 setData(res.data);

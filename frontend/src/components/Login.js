@@ -6,36 +6,59 @@ import {ReactSession} from 'react-client-session'
 
 const Login = () => {
   let navigate = useNavigate();
+  const [isChecked, setIsChecked] = useState(false);
   const url = URLDEFAULT+"/user/login";
   const [data, setData] = useState({
     email: "",
     password: "",
+    service:false,
   });
 
   function submit(e) {
     console.log(data.password);
-   
+    console.log(data.servicio);
       e.preventDefault();
       Axios.post(url, {
         
         email: data.email,
-        password: data.password
+        password: data.password,
+        service:isChecked
        
         }).then (res => {
           alert("Login Successful");
           ReactSession.setStoreType("localStorage");
-  
-          console.log(res.data['id']);
-          console.log();
+          
           ReactSession.set("username", res.data['user']);
           ReactSession.set("id", res.data['id']);
-          
-          navigate("/homeuser");
-        })
-        .catch((error) => {console.log(error)});
+          ReactSession.set("tipo",res.data['tipo']);
+          const tipo =res.data['tipo'];
+          console.log(tipo);
+          if(!isChecked){
+        if(tipo==='admin'){
+          navigate("/registerService");
+        }else{
+            navigate("/homeuser");
+          }
+        }else{
+          if(tipo===1){
+            navigate("/homeHotel");
+          }else if(tipo===2){
+            navigate("/homeCarros");
+          }else if(tipo===3){
+            navigate("/homeVuelos");
+          }
+        }
+        
+  })
+        .catch((error) => {alert("Error: No se encuentra el usuario, verifique su contraseña, correo o si no es ternary");});
       
   }
-
+  const handleOnChange = () => {
+    console.log(isChecked);
+    setIsChecked(!isChecked);
+    console.log(!isChecked);
+    
+  };
   function handle(e) {
     const newData = {...data};
     newData[e.target.id] = e.target.value;
@@ -67,6 +90,9 @@ const Login = () => {
                           <div className="form-group mb-5">
                             <label htmlFor="password">Password</label>
                             <input onChange={(e) => handle(e)} type="password" value={data.password} className="form-control" id="password" />
+                          </div>
+                          <div className="topping">
+                          <input type="checkbox" checked={isChecked}  onChange={handleOnChange}  id="tercero" name="terceros" value={data.servicio} />Tertiary
                           </div>
                           <button type="submit"  className="btn btn-theme" id="btn-login">Login</button>
                         </form>
